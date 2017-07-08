@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 #{title}  
+  form(method='POST', action='/articles/add')
+    .ui.equal.width.form
+      .fields
+        .field
+          label Title
+          input(name='title', type='text', placeholder='Title')    
+      .fields
+        .field
+          label Body
+          textarea(name='body', placeholder='Body...', rows='5')
+    input.ui.submit.button(name='Submit' type='submit' value='Submit')

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 #{title}  
+  form(method='POST', action='/users/register')
+    .ui.equal.width.form
+      .fields
+        .field
+          label Name
+          input(name='name', type='text', placeholder='Name')
+        .field
+          label Email
+          input(name='email' type='text', placeholder='Email')
+      .fields
+        .field
+          label Username
+          input(name='username', type='text', placeholder='Username')
+        .field
+          label Password
+          input(name='password' type='password', placeholder='Password')
+        .field
+          label Confirm Password
+          input(name='password2' type='password', placeholder='Comfirm Password')
+    input.ui.submit.button(name='Submit' type='submit' value='Submit')

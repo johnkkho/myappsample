@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Knowledgebase
+    link(rel='stylesheet' href='/bower_components/semantic/dist/semantic.css')
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    .ui.inverted.menu
+      .header.item Knowledgebase
+      a.item(href='/') Home
+      a.item(href='/articles/products') Products
+      if user
+        a.item(href='/articles/add') Add Article
+      .right.menu
+        .item
+          .ui.transparent.inverted.icon.input
+            i.search.icon
+            input(type='text', placeholder='Search')
+        if user      
+          a.item(href='/users/logout') Logout
+        else   
+          a.item(href='/users/login') Login
+          a.item(href='/users/register') Register
+    .ui.grid.container
+      .column
+        != messages('message', locals)
+        if errors
+          each error, i in errors
+            div(class="ui red message") #{error.msg}
+        block content
+        br
+        hr
+        footer
+          p Tomato wiki Copyright &copy; 2017
+    script(src='/bower_components/jquery/dist/jquery.js', crossorigin='anonymous')
+    script(src='/bower_components/semantic/dist/semantic.js')
+    script(src='/js/main.js')
+    

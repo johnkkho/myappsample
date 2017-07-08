@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 #{title}
+  .ui.celled.list
+    each article, i in articles
+      .item
+        i.map.marker.icon
+        .content
+          a.header(href="/articles/"+article._id)=article.title
+    
+    
+    
+    

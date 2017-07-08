@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 #{title}  
+  form(method='POST', action='/articles/edit/'+article._id)
+    .ui.equal.width.form
+      .fields
+        .field
+          label Title
+          input(name='title', type='text', placeholder='Title', value=article.title)
+        .field
+          label Author
+          input(name='author' type='text', placeholder='Author', value=author readonly)
+      .fields
+        .field
+          label Body
+          textarea(name='body', placeholder='Body...', rows='5')= article.body
+    input.ui.submit.button(name='Submit' type='submit' value='Submit')
